@@ -8,7 +8,8 @@ const ENV = process.env.NODE_ENV ?? 'development'
 const CONFIG: Configuration = {
     development: {
         app: {
-            PORT: process.env.PORT || 4001
+            PORT: process.env.PORT || 4001,
+            ORIGIN: process.env.APP_ORIGIN
         },
         auth0: {
             client_origin: process.env.APP_ORIGIN,
@@ -24,7 +25,8 @@ const CONFIG: Configuration = {
     },
     production: {
         app: {
-            PORT: process.env.PORT || 4001
+            PORT: process.env.PORT || 4001,
+            ORIGIN: process.env.APP_ORIGIN
         },
         auth0: {
             client_origin: process.env.APP_ORIGIN,

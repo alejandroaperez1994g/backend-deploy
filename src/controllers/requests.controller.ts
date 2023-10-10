@@ -14,14 +14,18 @@ export const protectedRequest = async (req: Request, res: Response) => {
 export const uploadRequest = async (req: Request, res: Response) => {
     const image = req.files?.image
     let imageUploaded = null
-
-    if (image) {
-        if ("tempFilePath" in image) {
-            imageUploaded = await uploadImage(image.tempFilePath)
-            await fs.unlink(image.tempFilePath)
+    try {
+        if (image) {
+            if ("tempFilePath" in image) {
+                imageUploaded = await uploadImage(image.tempFilePath)
+                await fs.unlink(image.tempFilePath)
+            }
         }
+
+
+        res.send({message: "Upload Request Success", data: imageUploaded})
+    }catch (e) {
+        res.status(500).json(e)
     }
 
-
-    res.send({message: "Upload Request Success", data: imageUploaded})
 }

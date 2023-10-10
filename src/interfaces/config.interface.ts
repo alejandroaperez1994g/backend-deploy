@@ -11,6 +11,7 @@ interface ENV {
 
 interface APP {
     PORT: number | string
+    ORIGIN: string | undefined
 }
 
 interface DB {

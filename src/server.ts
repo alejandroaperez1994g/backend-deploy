@@ -1,4 +1,4 @@
-import express, {Express} from "express"
+import express,  {Express,Request,Response} from "express"
 import cors from "cors"
 import fileUpload from "express-fileupload"
 import {requestRouter} from "./routes/requests.routes";
@@ -16,9 +16,10 @@ app.use(fileUpload({
     limits: {fileSize: 10000000}, // 10MB max file(s) size
     abortOnLimit: true // default: false (if true, files will not be uploaded and an error event will be emitted)
 }))
-app.use("/api", requestRouter)
-app.use("/api/users", usersRoutes)
-app.get("/", (_,res)=>{
+//app.use("/api", requestRouter)
+//app.use("/api/users", usersRoutes)
+
+app.get("/", (req:Request,res:Response)=>{
     res.status(200).json({message: "Welcome to the API World"})
 })
 app.use(errorHandler)

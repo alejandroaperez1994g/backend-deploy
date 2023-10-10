@@ -6,7 +6,7 @@ export const requestRouter = Router()
 
 requestRouter.get("/public", publicRequest)
 requestRouter.get("/protected", checkJwtMiddleware, protectedRequest)
-//requestRouter.post("/upload", uploadRequest)
+requestRouter.post("/upload", uploadRequest)
 
 
 

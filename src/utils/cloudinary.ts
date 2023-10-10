@@ -16,6 +16,13 @@ export const uploadImage = async (imagePath: string) => {
             overwrite: true
         })
 }
+
+export const uploadImageBase64 = async (image: string) => {
+    return await cloudinary.uploader.upload(`data:image/png;base64,${image}`,
+        { resource_type: 'image', folder: 'profilePictures/', overwrite: true })
+}
+
+
 export const uploadAudioFile = async (audioPath: string, name: string) => {
     return await cloudinary.uploader.upload(audioPath,
         {resource_type: 'video', public_id: name, folder: 'audioFiles/', overwrite: true})

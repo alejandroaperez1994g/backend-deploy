@@ -18,6 +18,9 @@ app.use(fileUpload({
 }))
 app.use("/api", requestRouter)
 app.use("/api/users", usersRoutes)
+app.get("/", (_,res)=>{
+    res.status(200).json({message: "Welcome to the API World"})
+})
 app.use(errorHandler)
 
 export default app

@@ -16,7 +16,7 @@ app.use(cors())
 app.use(express.json())
 app.use(morgan("dev"))
 app.use(fileUpload({
-    useTempFiles: true,
+    useTempFiles: false,
     tempFileDir: "./uploads",
     limits: {fileSize: 10000000}, // 10MB max file(s) size
     abortOnLimit: true // default: false (if true, files will not be uploaded and an error event will be emitted)
